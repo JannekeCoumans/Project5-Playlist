@@ -9,7 +9,12 @@ class SongOverview extends React.Component {
         super(props)
         this.state =
         {
-            songs: []
+            songs: [
+                { id: 1, songTitle: "This Love", artist: "Maroon 5", genre: "Pop", rating: "4" },
+                { id: 2, songTitle: "Let it Happen", artist: "Tame Impale", genre: "Rock", rating: "5" },
+                { id: 3, songTitle: "Circles", artist: "Post Malone", genre: "Pop", rating: "4" },
+                { id: 4, songTitle: "Waiting on the World to Change", artist: "John Mayer", genre: "Rock", rating: "5" },
+            ]
         }
 
     }
@@ -34,6 +39,54 @@ class SongOverview extends React.Component {
             });
         };
 
+        const sortTitles = () => {
+            const sortedBySongTitle = [...this.state.songs].sort(function (a, b) {
+                if (a.songTitle < b.songTitle) return -1;
+                else if (a.songTitle > b.songTitle) return 1;
+                return 0;
+            });
+
+            this.setState({
+                songs: sortedBySongTitle
+            })
+        }
+
+        const sortArtist = () => {
+            const sortedByArtist = [...this.state.songs].sort(function (a, b) {
+                if (a.artist < b.artist) return -1;
+                else if (a.artist > b.artist) return 1;
+                return 0;
+            });
+
+            this.setState({
+                songs: sortedByArtist
+            })
+        }
+
+        const sortGenre = () => {
+            const sortedByGenre = [...this.state.songs].sort(function (a, b) {
+                if (a.genre < b.genre) return -1;
+                else if (a.genre > b.genre) return 1;
+                return 0;
+            });
+
+            this.setState({
+                songs: sortedByGenre
+            })
+        }
+
+        const sortRating = () => {
+            const sortedByRating = [...this.state.songs].sort(function (a, b) {
+                if (a.rating < b.rating) return 1;
+                else if (a.rating > b.rating) return -1;
+                return 0;
+            });
+
+            this.setState({
+                songs: sortedByRating
+            })
+        }
+
         return (
             <div>
                 <Header />
@@ -41,10 +94,10 @@ class SongOverview extends React.Component {
                 <table style={{ width: "100%" }}>
                     <tbody>
                         <tr className="song-header">
-                            <th className="song-row__item">Song</th>
-                            <th className="song-row__item">Artist</th>
-                            <th className="song-row__item">Genre</th>
-                            <th className="song-row__item">Rating</th>
+                            <th className="song-row__item" style={{ width: "25%" }} onClick={sortTitles}>Song</th>
+                            <th className="song-row__item" style={{ width: "25%" }} onClick={sortArtist}>Artist</th>
+                            <th className="song-row__item" style={{ width: "25%" }} onClick={sortGenre}>Genre</th>
+                            <th className="song-row__item" style={{ width: "25%" }} onClick={sortRating}>Rating</th>
                         </tr>
                     </tbody>
                 </table>
