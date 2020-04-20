@@ -2,6 +2,7 @@ import React from "react";
 import Header from "./components/Header";
 import SongForm from "./components/SongForm";
 import SongList from "./components/SongList";
+import Categorize from "./components/Categorize";
 
 class SongOverview extends React.Component {
 
@@ -9,12 +10,7 @@ class SongOverview extends React.Component {
         super(props)
         this.state =
         {
-            songs: [
-                { id: 1, songTitle: "This Love", artist: "Maroon 5", genre: "Pop", rating: "4" },
-                { id: 2, songTitle: "Let it Happen", artist: "Tame Impale", genre: "Rock", rating: "5" },
-                { id: 3, songTitle: "Circles", artist: "Post Malone", genre: "Pop", rating: "4" },
-                { id: 4, songTitle: "Waiting on the World to Change", artist: "John Mayer", genre: "Rock", rating: "5" },
-            ]
+            songs: []
         }
 
     }
@@ -84,10 +80,18 @@ class SongOverview extends React.Component {
 
             this.setState({
                 songs: sortedByRating
-            })
-        }
+            });
+        };
 
-        return (
+        const deleteSong = (event) => {
+            const titleOfSongToDelete = event.target.getAttribute("value");
+            const newArrayOfSongs = this.state.songs.filter(song => song.songTitle !== titleOfSongToDelete).map(song => { return song });
+            this.setState({
+                songs: newArrayOfSongs
+            })
+        };   
+
+    return(
             <div>
                 <Header />
                 <SongForm addSong={addSong} />
@@ -101,8 +105,9 @@ class SongOverview extends React.Component {
                         </tr>
                     </tbody>
                 </table>
-                <SongList songs={this.state.songs} />
-            </div>
+                <SongList songs={this.state.songs} deleteSong={deleteSong} />
+                <Categorize songs={this.state.songs} />
+            </div >
         );
     };
 };

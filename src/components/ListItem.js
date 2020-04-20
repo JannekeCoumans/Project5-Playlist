@@ -1,16 +1,17 @@
 import React from "react"
 
-function ListItem({ song }) {
+function ListItem({ song, deleteSong }) {
+
     return (
         <tbody>
             <tr
                 className="list-item"
-                value={song}
             >
-                <td style={{ width: "25%" }}>{song.songTitle}</td>
-                <td style={{ width: "25%" }}>{song.artist}</td>
-                <td style={{ width: "25%" }}>{song.genre}</td>
-                <td style={{ width: "25%" }}>{song.rating}</td>
+                <td style={{ width: "24%" }}>{song.songTitle}</td>
+                <td style={{ width: "24%" }}>{song.artist}</td>
+                <td style={{ width: "24%" }}>{song.genre}</td>
+                <td style={{ width: "24%" }}>{song.rating}</td>
+                <button onClick={deleteSong} value={song.songTitle}>Delete</button>
             </tr>
         </tbody>
     )

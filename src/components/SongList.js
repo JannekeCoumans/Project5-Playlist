@@ -3,11 +3,12 @@ import ListItem from "./ListItem"
 
 class SongList extends Component{
     render() {
-        const { songs } = this.props;
+        const { songs, deleteSong } = this.props;
         const listItems = songs.map(item => (
             <ListItem 
                 key={item.id}
                 song={item}
+                deleteSong={deleteSong}
             />
         ))
 
