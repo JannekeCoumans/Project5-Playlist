@@ -3,7 +3,7 @@ import SongInput from "./SongInput"
 
 function SongForm({ addSong }) {
     return (
-        <div>
+        <div className="song-form">
             <SongInput handleSubmit={addSong} />
         </div>
     )
