@@ -7,10 +7,10 @@ function ListItem({ song }) {
                 className="list-item"
                 value={song}
             >
-                <td>{song.songTitle}</td>
-                <td>{song.artist}</td>
-                <td>{song.genre}</td>
-                <td>{song.rating}</td>
+                <td style={{ width: "25%" }}>{song.songTitle}</td>
+                <td style={{ width: "25%" }}>{song.artist}</td>
+                <td style={{ width: "25%" }}>{song.genre}</td>
+                <td style={{ width: "25%" }}>{song.rating}</td>
             </tr>
         </tbody>
     )
