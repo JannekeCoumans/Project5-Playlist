@@ -13,11 +13,9 @@ class Rock extends Component {
             );
 
         return (
-            <div className="rock-songs">
+            <div className="category">
                 <h3>Rock:</h3>
-                <table className="category-list" style={{ width: "33%", textAlign: "center" }}>
-                    {rockSongs}
-                </table>
+                <div className="category-list">{rockSongs}</div>
             </div>
         )
     }

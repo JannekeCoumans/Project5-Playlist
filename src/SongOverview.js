@@ -10,7 +10,23 @@ class SongOverview extends React.Component {
         super(props)
         this.state =
         {
-            songs: []
+            songs: [
+                {id: 1, songTitle: "Sunflower (feat. Steve Lacy)", artist: "Vampire Weekend", genre: "Pop", rating: 3},
+                {id: 2, songTitle: "Charcoal Baby", artist: "Blood Orange", genre: "R&B", rating: 3},
+                {id: 3, songTitle: "Money Trees", artist: "Kendrick Lamar, Jay Rock", genre: "R&B", rating: 4},
+                {id: 4, songTitle: "N Side", artist: "Steve Lacey", genre: "R&B", rating: 4},
+                {id: 5, songTitle: "Eat, Sleep, Wake (Nothing But You)", artist: "Bombay Bicycle Club", genre: "Rock", rating: 3},
+                {id: 6, songTitle: "Let You Know - Robin Hannibal Rework", artist: "Flume, London Grammar, Robin Hannibal", genre: "Pop", rating: 5},
+                {id: 7, songTitle: "Circles", artist: "Post Malone", genre: "Pop", rating: 4},
+                {id: 8, songTitle: "Is It true", artist: "Tame Impala", genre: "Rock", rating: 5},
+                {id: 9, songTitle: "Lost In Yesterday", artist: "Tame Impala", genre: "Rock", rating: 5},
+                {id: 10, songTitle: "Freelance", artist: "Toro Y Moi", genre: "Pop", rating: 4},
+                {id: 11, songTitle: "Motion", artist: "Emotional Oranges", genre: "R&B", rating: 5},
+                {id: 12, songTitle: "Don't Start Now", artist: "Dua Lipa", genre: "Pop", rating: 4},
+                {id: 13, songTitle: "Best To You", artist: "Blood Orange", genre: "R&B", rating: 5},
+                {id: 14, songTitle: "Tailwhip", artist: "Men I Trust", genre: "Pop", rating: 5},
+                {id: 15, songTitle: "It Might Be Time", artist: "Tame Impala", genre: "Rock", rating: 5}
+            ]
         }
 
     }
@@ -92,20 +108,19 @@ class SongOverview extends React.Component {
         };   
 
     return(
-            <div>
-                <Header />
-                <SongForm addSong={addSong} />
-                <table style={{ width: "100%" }}>
-                    <tbody>
-                        <tr className="song-header">
-                            <th className="song-row__item" style={{ width: "25%" }} onClick={sortTitles}>Song</th>
-                            <th className="song-row__item" style={{ width: "25%" }} onClick={sortArtist}>Artist</th>
-                            <th className="song-row__item" style={{ width: "25%" }} onClick={sortGenre}>Genre</th>
-                            <th className="song-row__item" style={{ width: "25%" }} onClick={sortRating}>Rating</th>
-                        </tr>
-                    </tbody>
-                </table>
-                <SongList songs={this.state.songs} deleteSong={deleteSong} />
+            <div className="container">
+                <Header songs={this.state.songs}/>
+                <div className="songs">
+                    <SongForm addSong={addSong} />
+                    <div className="songHeader">
+                        <div className="song-row__item" onClick={sortTitles}>Title ▼</div>
+                        <div className="song-row__item" onClick={sortArtist}>Artist ▼</div>
+                        <div className="song-row__item" onClick={sortGenre}>Genre ▼</div>
+                        <div className="song-row__item" onClick={sortRating}>Rating ▼</div>
+                        <div className="song-row_item" onclick={deleteSong}></div>
+                    </div>
+                    <SongList songs={this.state.songs} deleteSong={deleteSong} />
+                </div>
                 <Categorize songs={this.state.songs} />
             </div >
         );
