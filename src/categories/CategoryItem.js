@@ -3,14 +3,10 @@ import React from "react"
 function CategoryItem({ song }) {
 
     return (
-        <tbody>
-            <tr
-                className="list-item"
-            >
-                <td>{song.songTitle}</td>
-                <td>{song.artist}</td>
-            </tr>
-        </tbody>
+        <div>
+            <p className="songArtist">{song.artist}</p>
+            <p className="songTitle">{song.songTitle}</p>
+        </div>
     )
 }
 

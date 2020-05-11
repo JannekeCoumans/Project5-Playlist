@@ -13,9 +13,9 @@ class SongList extends Component {
         ))
 
         return (
-            <table className="song-list" style={{ width: "100%", textAlign: "center" }}>
+            <div className="song-list">
                 {listItems}
-            </table>
+            </div>
         )
     }
 }

@@ -1,11 +1,11 @@
 import React, { Component } from "react";
 import CategoryItem from "./CategoryItem"
 
-class Pop extends Component{
+class Rnb extends Component{
     render() {
         const { songs } = this.props;
-        const popSongs = songs.filter(item =>
-            item.genre == "Pop").map(item => 
+        const rnbSongs = songs.filter(item =>
+            item.genre == "R&B").map(item => 
             <CategoryItem 
                 key={item.id}
                 song={item}
@@ -14,11 +14,11 @@ class Pop extends Component{
 
         return(
             <div className="category">
-                <h3>Pop:</h3>
-                <div className="category-list">{popSongs}</div>
+                <h3>R&B:</h3>
+                <div className="category-list">{rnbSongs}</div>
             </div>
         )
     }
 }
 
-export default Pop;
+export default Rnb;
